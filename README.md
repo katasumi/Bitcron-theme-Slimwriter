@@ -1,3 +1,5 @@
+![预览图](https://github.com/yamakong/Bitcron-template-Slimwriter/blob/master/screenshot.png)
+
 Bitcron双栏自适应简洁主题
 
 移植（？）&修改自wordpress主题“Slimwriter”，如有侵权请告知
