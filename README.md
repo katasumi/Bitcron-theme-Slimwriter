@@ -1,4 +1,4 @@
-![预览图](https://github.com/yamakong/Bitcron-template-Slimwriter/blob/master/screenshot.png)
+![预览图](https://github.com/yamakong/Bitcron-template-Slimwriter/blob/master/demo.png)
 
 Bitcron双栏自适应简洁主题
 
