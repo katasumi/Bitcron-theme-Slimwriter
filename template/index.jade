@@ -1,8 +1,16 @@
 extends base.jade
 block title
-	title= site.title + " - " + site.configs.sub_title 
+	if request.args.s
+	    title= request.args.s + " 的搜索结果 - " + site.title
+	else 
+		title= site.title + " - " + site.configs.sub_title 
 	
 block content
+	+_('search_label', '下面是包含 <b>%s</b> 的搜索结果', 'zh_cn')
+
+	if request.args.s
+		h1.index_label_title= _('search_label') % request.args.s
+
 	.autopagerize_page_element: .content
 	    for post in posts: .post.animated.fadeInDown
 	        .entry-header
