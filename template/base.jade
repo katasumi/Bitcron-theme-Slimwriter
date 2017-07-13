@@ -1,0 +1,27 @@
+html
+	head
+		+h.headers
+		block title
+			title= site.title
+		+h.load('markdown')
+		+h.load("/template/style.scss")
+	body
+		#wrap
+		    #heading
+		        +font("wxihei")
+		            a(href='/')= site.title
+		    #nav
+			   .main
+			        +site.get_nav(items=nav_items, toggle_menu=True)
+		    block content
+		    #search_bar
+		        +posts.search_in_html()
+             #footer
+		        .copyright
+				    span= '© 2015-2017 '
+				    a(href='/', real="nofollow")= site.title
+				    span= 'Powered by '
+			         a(href="https://bitcron.com/", target="_blank") Bitcron 
+
+	+h.back_to_top(label='↑')
+
