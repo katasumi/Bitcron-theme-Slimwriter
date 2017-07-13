@@ -1,9 +1,0 @@
-if not post.metadata.password or request.form.password|string == post.metadata.password|string
-	 .entry.markdown= post.content
-else
-    include include/password_form
-    
-    if request.form.password|string
-        .entry.markdown
-        	p
-                strong 输入错误，请重试。
