@@ -2,7 +2,7 @@
 Theme Name: Slimwriter
 Author: 名字什么的很重要吗
 Author URI: slimwriter.bitcron.com
-Description: update 2017.7.15
+Description: update 2017.7.16
 Version: 1.0
 */
 
@@ -235,23 +235,34 @@ a{
 }
 
 .entry{
-	padding: 10px 20px 20px 20px;
-	p{
-		margin-bottom: 16px;
-	}
+    padding: 10px 20px 20px 20px;
+    p{
+        margin: 0.6em 0;
+    }
 }
 
 .entry-footer{
-    margin-top: 20px;
+    margin: 0 20px;
+    padding: 15px 0 20px;
     border-top: 1px solid #eee;
     span{
         font-size: 14px;
     }
-}  
+}   
+  
+#password{
+    background-color:transparent !important;
+    border-radius:0 !important;
+    outline:none;
+    border: 1px solid #ddd;
+    line-height: 1.5;
+    padding:3px 3px 3px 5px;
+}
   
 /*前后文*/
 .post_pager{
-    padding: 15px 0 30px 0;
+    margin: 0 20px;
+    padding: 15px 0 50px 0;
     border-top: 1px solid #eee;
     font-size: 16px;
     span{
