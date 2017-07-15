@@ -12,4 +12,6 @@ Bitcron双栏自适应简洁主题
 
 关于页面的显示（加入导航栏）方法：Dashboard→导航→自定义导航→URL：“/about”，关于页面内容修改：about.jade
 
+密码保护文章创建方法：在文章的meta处添加属性：“password”或密码问题：“question”
+
 demo: https://slimwriter.dearsnow.com/
