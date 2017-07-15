@@ -4,12 +4,15 @@ block title
 
 
 block content
-	.autopagerize_page_element: .content: .post_page
+	.content: .post_page
 	    .entry-header
              h1= post.title
              date.info= post.date.format('%B %d, %Y') 
-	     .entry.markdown= post.content
-	        .post_pager
+        if post.metadata.password
+			include include/show_content.jade
+		else
+	        .entry.markdown= post.content
+	    .post_pager
   		        if posts.pre_one
   			       a.next(href=posts.pre_one.url)= posts.pre_one.title
 		           else
@@ -20,5 +23,6 @@ block content
 		           else
 		               span.pre 
 			                已是最早一篇
+	     
 					 
 	+post.comments_as_html()
