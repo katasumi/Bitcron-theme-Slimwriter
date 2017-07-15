@@ -6,10 +6,11 @@ block title
 block content
 	.autopagerize_page_element: .content: .post_page
 	    .entry-header
-              h1= '关于'
+            h1= '关于'
 	    .entry.markdown
 		    h3= '主题介绍'
-		    img(src="/_image/screenshot.png")
+		    p
+		    	img(src="/_image/screenshot.png")
 		    p= 'Bitcron双栏自适应简洁主题'
 		    p= '移植（？）&修改自wordpress主题“Slimwriter”，如有侵权请告知'
 		    p= '阉割了分类、标签功能，仅有文章和搜索功能，专注于文字'
@@ -17,8 +18,12 @@ block content
 		    h3= '使用方法'
 		    p= '关于页面的显示（加入导航栏）方法：Dashboard→导航→自定义导航→URL：“/about”，关于页面内容修改：about.jade'
 		    h4= '下载'
-		    a(href="/_attchment/template.zip") template.zip
+		    p
+		        a(href="/_attachment/template.zip") template.zip
+		    p
+		        a(href="https://github.com/yamakong/Bitcron-theme-Slimwriter") Github
 		    h4= '联系'
 		    p= 'BUG报告等请邮件联系'
-		    a(href="mailto:moomml3104@gmail.com") Click here to contact me
+		    p
+		        a(href="mailto:moomml3104@gmail.com") Click here to contact me
 		
