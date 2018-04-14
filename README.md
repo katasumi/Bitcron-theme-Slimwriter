@@ -14,4 +14,4 @@ Bitcron单栏自适应简洁主题
 
 密码保护文章创建方法：在文章的meta处添加属性：“password”;也可选择性添加密码提示问题：“question”
 
-demo: https://slimwriter.dearsnow.com/
+demo: hhttps://slimwriter.bitcron.com/
