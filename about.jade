@@ -1,0 +1,32 @@
+extends base
+block title
+	title= "关于 - " + site.title
+
+block content
+  #main.pure-u-1.pure-u-md-3-4:.post-cols
+	#category
+    	.category-inner
+		    .category-header
+			    h3.title
+					i.fa.fa-info-circle
+					span= '关于'
+		    .category-entries
+		    	.category-content.markdown
+		    		h4= '作者'
+	    	        p= '性别女，然后没有了……'
+			        h4= '博客'
+	    	        p= '由Bitcron驱动'
+	    	        p= '此主题很久之前就做成形了，然后现在是间隔太久已经不太记得当时是怎么做的了……于是先放出来亮个相？'
+	    	        p= '首页文章列表部分借鉴（copy）自cho，捂脸'
+			        h4= '联系'
+	    	        p= 'moomml3104#gmail.com #→@'	    
+
+  #sidebar-right.pure-u-1.pure-u-md-1-4
+    from mixins import make_administratorinfo
+    +make_administratorinfo()
+    from mixins import make_cate
+    +make_cate()
+    from mixins import make_tag
+    +make_tag()   
+    from mixins import make_search
+    +make_search()	        

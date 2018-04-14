@@ -1,0 +1,35 @@
+extends base.jade
+block title
+	title= "归档 - %s" % site.title
+block content
+  #main.pure-u-1.pure-u-md-3-4:.post-cols
+	#category
+    	.category-inner
+		    .category-header
+			    h3.title
+					i.fa.fa-calendar
+					span= '归档'
+	        #archive
+		        entries = get_data(type='post',limit=32, sort='desc').group('-date:year+month')
+		        for x, posts in entries
+			        h3= '%s年%s月' % x
+			        ul.archive-inner: for post in posts: li
+				        a(href=post.url, title=post.title)
+					        if post.cover
+  						        img.post-cover(src=post.cover.resize(100, 100, fixed=True))
+  					        else
+  						        .post-no-cover
+  						            .post-text= post.content.limit(20).no_pic.plain
+					        .info
+						        .date= post.date.format("%m月%d日")
+	+h.paginator()
+
+  #sidebar-right.pure-u-1.pure-u-md-1-4
+    from mixins import make_administratorinfo
+    +make_administratorinfo()
+    from mixins import make_cate
+    +make_cate()
+    from mixins import make_tag
+    +make_tag()   
+    from mixins import make_search
+    +make_search()

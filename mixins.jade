@@ -1,0 +1,22 @@
+//mixins.jade
+mixin sub_post_handler(url, original_html, new_line=True)
+    if not new_line
+        {{original_html}}
+    else
+        sub_post = d.get_doc(url=url)
+        if not sub_post
+            {{original_html}}
+        else: .post-preview.clearfix
+            preview_meta_class = "with_bg post-preview--meta" if sub_post.cover else 'without_bg post-preview--meta'
+            div(class=preview_meta_class)
+                .post-preview--middle
+                    h4.post-preview--title
+                        a(href=sub_post.url)= sub_post.title
+                    section.post-preview--excerpt
+                        span= sub_post.content.limit(words=40, keep_images=False).plain
+                    time.post-preview--date= sub_post.date('%Y.%m.%d') + " | " + "%s评" %(sub_post.comments_count or 0) + " | " + "%s度" %(sub_post.visits or 0)
+            if sub_post.cover
+                bg_url = sub_post.cover.resize(350, 350, fixed=True)
+                .post-preview--image(style="background-image:url({{bg_url}})")
+
+article(class=meta): +refer(sub_post_handler)

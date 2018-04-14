@@ -1,0 +1,49 @@
+extends base
+block title
+	title= post.title + " - " + site.title
+
+block content
+  #main.pure-u-1.pure-u-md-3-4:.post-cols
+    .post-entry
+		.entry-inner
+		    .entry-header
+			    .breadcrumb
+				    a(href="/") TOP
+					span.breadcrumb-gt= '>'
+					if post.category
+					    a(href=post.category.url)= post.category.title
+					    span.breadcrumb-gt= '>'
+					span= post.title			
+			    .entry-date
+			       i.fa.fa-clock-o
+			       date.post-date
+			           a(href="/archive")= post.date.format("%Y-%m-%d")
+			    h1.entry-title=  post.title
+				if post.category
+			        .entry-categories
+					    a(href=post.category.url)= post.category.title
+			.entry-content.markdown= post.content 
+	    if site.tags:
+  		    .entry-tags
+			    for tag in post.tags
+        		    a(href="/tag/{{tag|urlencode()}}")= tag
+			
+	+post.comments_as_html()
+
+	.paginator
+  		if posts.pre_one
+  		   a.next(href=posts.pre_one.url)= '下一篇'
+  		if posts.next_one
+  		   a.pre(href=posts.next_one.url)= '上一篇'
+
+  #sidebar-right.pure-u-1.pure-u-md-1-4
+    from mixins import make_administratorinfo
+    +make_administratorinfo()
+    from mixins import make_cate
+    +make_cate()
+    from mixins import make_tag
+    +make_tag()   
+    from mixins import make_search
+    +make_search()
+    from mixins import make_toc
+    +make_toc()  

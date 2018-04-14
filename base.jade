@@ -1,0 +1,47 @@
+html
+	head
+		+h.headers
+		block title
+			title= site.title
+		+h.load('markdown')
+		+h.load('/template/style.scss')
+		+h.load('/fb_static/lib/pure.css')
+
+	+browser('firefox')
+        style(type="text/css")
+            #sidebar-right .widget .widget-text .tag a{ padding: 7px 8px 4px 8px; }
+            #sidebar-right .widget .widget-title { padding: 0.9em 0.7em 0.7em 0.7em;}
+            .paginator a{ padding: 7px 20px 5px 20px;}
+
+    body
+		#header
+			.site-title
+		        .site-name
+			        h1
+			        	a(href='/')= site.title
+			        h4.site-description= site.configs.sub_title
+		#layout.pure-g
+			block content
+        #footer
+		      .copyright
+			    span= "©2015-%s " %(site.now.year)
+			        a(href='/')= site.title
+		      .copyright
+		         span= 'Theme '
+		             a(href="/") guliin
+			     span= ', Powered by '
+			        a(href="https://bitcron.com/") Bitcron
+			        
+		+h.back_to_top(label="▲")
+
+    script
+        $(document).ready (function() {
+            var parse_url = /^(?:([A-Za-z]+):)?(\/{0,3})([0-9.\-A-Za-z]+)(?::(\d+))?(?:\/([^?#]*))?(?:\?([^#]*))?(?:#(.*))?$/;
+            var location_href = window.location.href.replace(parse_url,'$3')
+            $('.markdown span.md_line a:not(:has(img)),.my_socials a:not(:has(img)),.author-name a,#footer a').hover(function() {
+                var this_href = $(this).attr('href');
+                var replace_href = this_href.replace(parse_url,'$3');
+                if ( this_href != replace_href && location_href != replace_href)
+                    $(this).attr('target','_blank'); 
+            });
+        });		
